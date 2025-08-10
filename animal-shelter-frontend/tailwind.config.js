@@ -2,7 +2,7 @@
 export default {
     content: [
         "./index.html",
-        "./src/**/*.{js,ts,jsx,tsx}",
+        "./src/**/*.{js,ts,jsx,tsx}", // тук Tailwind ще търси класовете
     ],
     theme: {
         extend: {},

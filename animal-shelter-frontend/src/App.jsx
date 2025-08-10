@@ -28,7 +28,8 @@ const App = () => {
                         <span className="text-3xl font-bold text-amber-800">ОсиновиМе</span>
                     </div>
 
-                    <div className="flex items-baseline space-x-8">
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex items-baseline space-x-8">
                         <button
                             onClick={() => setCurrentPage('home')}
                             className={`px-6 py-3 rounded-md text-lg font-medium transition-colors ${
@@ -47,7 +48,49 @@ const App = () => {
                             Контакти
                         </button>
                     </div>
+
+                    {/* Mobile Menu Button */}
+                    <div className="md:hidden">
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className="text-amber-700 hover:bg-amber-200 p-2 rounded-md transition-colors"
+                        >
+                            {mobileMenuOpen ? (
+                                <X className="h-6 w-6" />
+                            ) : (
+                                <Menu className="h-6 w-6" />
+                            )}
+                        </button>
+                    </div>
                 </div>
+
+                {/* Mobile Menu */}
+                {mobileMenuOpen && (
+                    <div className="md:hidden bg-white border-t border-amber-200 shadow-lg">
+                        <div className="px-2 pt-2 pb-3 space-y-1">
+                            <button
+                                onClick={() => {
+                                    setCurrentPage('home');
+                                    setMobileMenuOpen(false);
+                                }}
+                                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                                    currentPage === 'home' ? 'bg-amber-200 text-amber-900' : 'text-amber-700 hover:bg-amber-100'
+                                }`}
+                            >
+                                <Home className="inline-block w-4 h-4 mr-2" />
+                                Начало
+                            </button>
+                            <button className="block w-full text-left text-amber-700 hover:bg-amber-100 px-3 py-2 rounded-md text-base font-medium transition-colors">
+                                <Info className="inline-block w-4 h-4 mr-2" />
+                                За нас
+                            </button>
+                            <button className="block w-full text-left text-amber-700 hover:bg-amber-100 px-3 py-2 rounded-md text-base font-medium transition-colors">
+                                <Phone className="inline-block w-4 h-4 mr-2" />
+                                Контакти
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </nav>
     );
@@ -60,7 +103,7 @@ const App = () => {
                     backgroundImage: `linear-gradient(rgba(217, 119, 6, 0.4), rgba(217, 119, 6, 0.4)), url('https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')`
                 }}
             >
-                <div className="text-center text-white bg-amber-800/80 rounded-3xl p-24 mx-16 backdrop-blur-sm">
+                <div className="text-center text-white bg-amber-800 bg-opacity-80 rounded-3xl p-24 mx-16 backdrop-blur-sm">
                     <h1 className="text-9xl font-bold mb-12 text-yellow-100">ОсиновиМе</h1>
                     <p className="text-5xl mb-16 text-yellow-200">Лапички търсят сърце</p>
                     <div className="flex gap-12 justify-center">
@@ -73,7 +116,7 @@ const App = () => {
                         </button>
                         <button
                             onClick={() => setCurrentPage('login')}
-                            className="bg-white/90 text-amber-800 px-20 py-6 rounded-full text-2xl font-semibold hover:bg-white transform hover:scale-105 transition-all duration-200 shadow-lg"
+                            className="bg-white bg-opacity-90 text-amber-800 px-20 py-6 rounded-full text-2xl font-semibold hover:bg-white transform hover:scale-105 transition-all duration-200 shadow-lg"
                         >
                             <LogIn className="inline-block w-8 h-8 mr-4" />
                             Вход
@@ -144,7 +187,7 @@ const App = () => {
                                             type="text"
                                             value={loginData.username}
                                             onChange={(e) => setLoginData({...loginData, username: e.target.value})}
-                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50/50"
+                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50 bg-opacity-50"
                                             placeholder="Въведете вашето име"
                                             required
                                         />
@@ -159,7 +202,7 @@ const App = () => {
                                             type="password"
                                             value={loginData.password}
                                             onChange={(e) => setLoginData({...loginData, password: e.target.value})}
-                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50/50"
+                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50 bg-opacity-50"
                                             placeholder="Въведете вашата парола"
                                             required
                                         />
@@ -229,7 +272,7 @@ const App = () => {
                                             type="text"
                                             value={registerData.firstName}
                                             onChange={(e) => setRegisterData({...registerData, firstName: e.target.value})}
-                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50/50"
+                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50 bg-opacity-50"
                                             placeholder="Въведете вашето име"
                                             required
                                         />
@@ -244,7 +287,7 @@ const App = () => {
                                             type="text"
                                             value={registerData.lastName}
                                             onChange={(e) => setRegisterData({...registerData, lastName: e.target.value})}
-                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50/50"
+                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50 bg-opacity-50"
                                             placeholder="Въведете вашата фамилия"
                                             required
                                         />
@@ -259,7 +302,7 @@ const App = () => {
                                             type="email"
                                             value={registerData.email}
                                             onChange={(e) => setRegisterData({...registerData, email: e.target.value})}
-                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50/50"
+                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50 bg-opacity-50"
                                             placeholder="Въведете вашия имейл"
                                             required
                                         />
@@ -274,7 +317,7 @@ const App = () => {
                                             type="password"
                                             value={registerData.password}
                                             onChange={(e) => setRegisterData({...registerData, password: e.target.value})}
-                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50/50"
+                                            className="w-full pl-16 pr-6 py-5 text-xl border border-amber-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50 bg-opacity-50"
                                             placeholder="Въведете парола"
                                             required
                                         />
