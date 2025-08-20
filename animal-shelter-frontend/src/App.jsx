@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Heart, User, Mail, Lock, UserPlus, LogIn, Home, Info, Phone, Menu, X } from 'lucide-react';
+import AnimalsPage from "./AnimalsPage";
+
 
 const App = () => {
     const [currentPage, setCurrentPage] = useState('home');
@@ -9,12 +11,14 @@ const App = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
+        setCurrentPage("animals");
         console.log('Login data:', loginData);
         // Тук ще добавиш логиката за вход
     };
 
     const handleRegister = (e) => {
         e.preventDefault();
+        setCurrentPage("animals");
         console.log('Register data:', registerData);
         // Тук ще добавиш логиката за регистрация
     };
@@ -364,6 +368,7 @@ const App = () => {
             {currentPage === 'home' && <HomePage />}
             {currentPage === 'login' && <LoginPage />}
             {currentPage === 'register' && <RegisterPage />}
+            {currentPage === 'animals' && <AnimalsPage setCurrentPage={setCurrentPage} />}
         </div>
     );
 };
