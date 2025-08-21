@@ -1,26 +1,26 @@
 [
   {
     "id": 1,
-    "name": "Боби",
+    "name": "Бейли",
     "type": "Куче",
     "age": "2 години",
     "description": "Весело и енергично кученце, обича игри на открито.",
-    "image": "https://placedog.net/400/300?id=1"
+    "image": "https://m.netinfo.bg/media/images/46219/46219721/991-ratio-labrador-retrivyr-kuche.jpg"
   },
   {
     "id": 2,
-    "name": "Мици",
+    "name": "Пуфи",
     "type": "Котка",
     "age": "1 година",
     "description": "Спокойна и гальовна котка, търси уютен дом.",
-    "image": "https://placekitten.com/400/300"
+    "image": "https://medivet.bg/wp-content/uploads/2021/12/%D0%B3%D1%80%D0%B8%D0%B6%D0%B8-%D0%B7%D0%B0-%D0%BC%D0%B0%D0%BB%D0%BA%D0%BE-%D0%BA%D0%BE%D1%82%D0%B5%D0%BD%D1%86%D0%B5-1-1067x800.jpg"
   },
   {
     "id": 3,
-    "name": "Рижко",
+    "name": "Мечо",
     "type": "Куче",
     "age": "3 години",
     "description": "Умен пазач, много верен към хората.",
-    "image": "https://placedog.net/400/300?id=2"
+    "image": "https://www.espressonews.bg/media/display/id/39633"
   }
 ]
